@@ -7,6 +7,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+                integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+                crossorigin="anonymous">
 
     <title>計算機</title>
   </head>
@@ -14,56 +17,56 @@
     <div class="jumbotron jumbotron-fluid bg-dark">
         <div class="container text-white text-center">
             <h1 class="display-4 mb-2">計算機</h1>
-            <input id="input" type="text" class="h1 mb-5 bg-dark border-0 text-right text-white">
+            <input id="input" type="text" class="h1 mb-5 bg-dark border-0 text-right text-white" disabled>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div id="buttons">
                         <div class="row">
-                            <div class="col-md mb-4"><a id="b-clearAll" class="btn btn-dark btn-block border-danger" href="#" role="button">C</a>
+                            <div class="col mb-4"><a id="b-clearAll" class="btn btn-dark btn-block border-danger" href="#" role="button">C</a>
                             </div>
-                            <div class="col-md mb-4"><a id="b-clearOne" class="btn btn-dark btn-block border-danger" href="#" role="button">&lt;</a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">1</a>
-                            </div>
-                            <div class="col-md mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">2</a>
-                            </div>
-                            <div class="col-md mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">3</a>
-                            </div>
-                            <div class="col-md mb-4"><a id="b-add" class="btn btn-dark btn-block border-success" href="#" role="button">-</a>
+                            <div class="col mb-4"><a id="b-clearOne" class="btn btn-dark btn-block border-danger" href="#" role="button"><i class="fas fa-backspace"></i></a>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">4</a>
+                            <div class="col mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">1</a>
                             </div>
-                            <div class="col-md mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">5</a>
+                            <div class="col mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">2</a>
                             </div>
-                            <div class="col-md mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">6</a>
+                            <div class="col mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">3</a>
                             </div>
-                            <div class="col-md mb-4"><a id="b-sub" class="btn btn-dark btn-block border-success" href="#" role="button">-</a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">7</a>
-                            </div>
-                            <div class="col-md mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">8</a>
-                            </div>
-                            <div class="col-md mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">9</a>
-                            </div>
-                            <div class="col-md mb-4"><a id="b-mul" class="btn btn-dark btn-block border-success" href="#" role="button">*</a>
+                            <div class="col mb-4"><a id="b-add" class="btn btn-dark btn-block border-success" href="#" role="button">+</a>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md mb-4"><a id="b-point" class="btn btn-dark btn-block border-white" href="#" role="button">.</a>
+                            <div class="col mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">4</a>
                             </div>
-                            <div class="col-md mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">0</a>
+                            <div class="col mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">5</a>
                             </div>
-                            <div class="col-md mb-4"><a id="b-calculat" class="btn btn-dark btn-block border-primary" href="#" role="button">=</a>
+                            <div class="col mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">6</a>
                             </div>
-                            <div class="col-md mb-4"><a id="b-div" class="btn btn-dark btn-block border-success" href="#" role="button">/</a>
+                            <div class="col mb-4"><a id="b-sub" class="btn btn-dark btn-block border-success" href="#" role="button">-</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">7</a>
+                            </div>
+                            <div class="col mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">8</a>
+                            </div>
+                            <div class="col mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">9</a>
+                            </div>
+                            <div class="col mb-4"><a id="b-mul" class="btn btn-dark btn-block border-success" href="#" role="button">*</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-4"><a id="b-point" class="btn btn-dark btn-block border-white" href="#" role="button">.</a>
+                            </div>
+                            <div class="col mb-4"><a class="btn btn-dark btn-block border-white input-pad" href="#" role="button">0</a>
+                            </div>
+                            <div class="col mb-4"><a id="b-calculat" class="btn btn-dark btn-block border-primary" href="#" role="button">=</a>
+                            </div>
+                            <div class="col mb-4"><a id="b-div" class="btn btn-dark btn-block border-success" href="#" role="button">/</a>
                             </div>
                         </div>
                     </div>
@@ -77,13 +80,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
+        document.getElementById("input").onkeydown = keydown;
+        function keydown() {
+            console.log(window.event.keyCode);
+            if((window.event.keyCode > 64 && window.event.keyCode < 91) || (window.event.keyCode > 185 && window.event.keyCode < 223)){
+                event.returnValue = false;
+            }
+        }
         document.getElementById("b-clearAll").onclick = doClearAllInput;
         document.getElementById("b-clearOne").onclick = doClearOneInput;
         document.getElementById("b-point").onclick = inputButtonPoint;
-        
+        document.getElementById("b-sub").onclick = doSub;
+        document.getElementById("b-add").onclick = doAdd;
+
         function inputButton() {
             var input = document.getElementById("input");
             var text = this.innerHTML;
+            if(afterCalculateFirst == true) {
+                input.value = "";
+                afterCalculateFirst = false;
+            }
             input.value += text;
         }
 
@@ -101,6 +117,7 @@
 
         function doClearAllInput(){
             document.getElementById("input").value = "";
+            answer = 0;
         }
 
         function doClearOneInput(){
@@ -118,6 +135,31 @@
             if(!hasPoint){
                 document.getElementById("b-point").onclick = inputButtonPoint;
             }
+        }
+
+        var answer = 0;
+        var firstInput = true;
+        var afterCalculateFirst = false;
+
+        function doAdd(){
+            var input = document.getElementById("input");
+            var inputVal = +input.value;
+            answer += inputVal;
+            input.value = answer;
+            afterCalculateFirst = true;
+        }
+
+        function doSub(){
+            var input = document.getElementById("input");
+            var inputVal = +input.value;
+            if(firstInput == true){
+                input.value = inputVal;
+            }
+            else {
+                answer -= inputVal;
+                input.value = answer;
+            }
+            afterCalculateFirst = true;
         }
     </script>
   </body>
