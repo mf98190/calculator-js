@@ -13,11 +13,14 @@
 
     <title>計算機</title>
   </head>
-  <body>
+  <body class="bg-dark">
     <div class="jumbotron jumbotron-fluid bg-dark">
-        <div class="container text-white text-center">
-            <h1 class="display-4 mb-2">計算機</h1>
-            <input id="input" type="text" class="h1 mb-5 bg-dark border-0 text-right text-white" disabled>
+        <div class="container">
+            <div class="row text-white text-center">
+                <h1 class="col-12 display-4 mb-2">計算機</h1>
+                <input id="laout" type="text" class="col-12 h4 bg-dark border-0 text-right text-white-50" disabled>
+                <input id="input" type="text" class="col-12 h1 mb-5 bg-dark border-0 text-right text-white" disabled>
+            </div>
         </div>
         <div class="container">
             <div class="row">
@@ -80,6 +83,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
+        //關閉鍵盤輸入
         document.getElementById("input").onkeydown = keydown;
         function keydown() {
             console.log(window.event.keyCode);
@@ -87,27 +91,53 @@
                 event.returnValue = false;
             }
         }
+        //掛載onclock事件
         document.getElementById("b-clearAll").onclick = doClearAllInput;
         document.getElementById("b-clearOne").onclick = doClearOneInput;
         document.getElementById("b-point").onclick = inputButtonPoint;
-        document.getElementById("b-sub").onclick = doSub;
-        document.getElementById("b-add").onclick = doAdd;
+        addOnclickCalculate();
+        
+        //掛載加減乘除等於的onclick事件function
+        function addOnclickCalculate() {
+            document.getElementById("b-add").onclick = function() { doWhat = "+"; doCalculate(doWhat); };
+            document.getElementById("b-sub").onclick = function() { doWhat = "-"; doCalculate(doWhat); };
+            document.getElementById("b-mul").onclick = function() { doWhat = "*"; doCalculate(doWhat); };
+            document.getElementById("b-div").onclick = function() { doWhat = "/"; doCalculate(doWhat); };
+            document.getElementById("b-calculat").onclick = function() { 
+                doCalculate(doWhat); 
+                document.getElementById("laout").value = "";
+                answer = 0;
+                firstInput = true; 
+            };
+        }
 
+        //移除加減乘除等於的onclick事件function
+        function removeOnclickCalculate() {
+            document.getElementById("b-add").onclick = "";
+            document.getElementById("b-sub").onclick = "";
+            document.getElementById("b-mul").onclick = "";
+            document.getElementById("b-div").onclick = "";
+            document.getElementById("b-calculat").onclick = "";
+        }
+        
         function inputButton() {
             var input = document.getElementById("input");
             var text = this.innerHTML;
             if(afterCalculateFirst == true) {
                 input.value = "";
                 afterCalculateFirst = false;
+                addOnclickCalculate();
             }
             input.value += text;
         }
 
+        //掛載數字按鍵的onclick事件
         var inputButtons = document.getElementsByClassName("input-pad");
         for(var i = 0; i < inputButtons.length; i++){
             inputButtons[i].onclick = inputButton;
         }
 
+        //.不會在一條計算式內重複出現
         function inputButtonPoint() {
             var input = document.getElementById("input");
             var text = this.innerHTML;
@@ -115,11 +145,15 @@
             document.getElementById("b-point").onclick = "";
         }
 
+        //計算機輸入修改
         function doClearAllInput(){
             document.getElementById("input").value = "";
+            document.getElementById("laout").value = "";
             answer = 0;
+            firstInput = true;
         }
 
+        //計算機清除歸零
         function doClearOneInput(){
             var input = document.getElementById("input");
             var text = input.value;
@@ -138,28 +172,44 @@
         }
 
         var answer = 0;
+        var doWhat = "";
         var firstInput = true;
         var afterCalculateFirst = false;
 
-        function doAdd(){
-            var input = document.getElementById("input");
-            var inputVal = +input.value;
-            answer += inputVal;
-            input.value = answer;
-            afterCalculateFirst = true;
-        }
-
-        function doSub(){
-            var input = document.getElementById("input");
-            var inputVal = +input.value;
-            if(firstInput == true){
-                input.value = inputVal;
+        //運算
+        function doCalculate(_doWhat) {
+            var text = "";
+            if(firstInput){
+                answer = +document.getElementById("input").value;
+                firstInput = false;
+                text = answer + " " + _doWhat + " ";
+                console.log(answer);
             }
             else {
-                answer -= inputVal;
+                var input = document.getElementById("input");
+                var inputVal = +input.value;
+                if (_doWhat == "+") {
+                    console.log(_doWhat);
+                    answer += inputVal;
+                }
+                else if (_doWhat == "-") {
+                    console.log(_doWhat);
+                    answer -= inputVal;
+                }
+                else if (_doWhat == "*") {
+                    console.log(_doWhat);
+                    answer *= inputVal;
+                }
+                else if (_doWhat == "/") {
+                    console.log(_doWhat);
+                    answer /= inputVal;
+                }
                 input.value = answer;
+                text = inputVal + " " + _doWhat + " ";
             }
+            document.getElementById("laout").value += text;
             afterCalculateFirst = true;
+            removeOnclickCalculate();
         }
     </script>
   </body>
